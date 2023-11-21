@@ -4,7 +4,7 @@ num_classes = 13
 norm_cfg = dict(type='SyncBN', requires_grad=True)
 model = dict(
     type='EncoderDecoderMask2Former',
-    pretrained='pretrained/beit_large_patch16_224_pt22k_ft22k.pth',
+    pretrained='pretrained/cityscape.pth',
     backbone=dict(
         type='BEiTAdapter',
         patch_size=16,
@@ -145,7 +145,7 @@ model = dict(
         stride=(512, 512)),
     init_cfg=None)
 dataset_type = 'samsung'
-data_root = '../../data_preprocessing/data/13class_dataset'
+data_root = 'data/samsung_data'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 crop_size = (896, 896)
@@ -189,9 +189,9 @@ data = dict(
     workers_per_gpu=2,
     train=dict(
         type='samsung',
-        data_root= '../../data_preprocessing/data/13class_dataset',
-        img_dir='target_img',
-        ann_dir='target_img_anno',
+        data_root= 'data/samsung_data',
+        img_dir='train_img',
+        ann_dir='train_mask',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(type='LoadAnnotations'),
@@ -214,9 +214,9 @@ data = dict(
         ]),
     val=dict(
         type='samsung',
-        data_root='../../data_preprocessing/data/13class_dataset',
-        img_dir='target_valid_img',
-        ann_dir='target_valid_anno',
+        data_root='data/samsung_data',
+        img_dir='val_img',
+        ann_dir='val_mask',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(
@@ -237,9 +237,9 @@ data = dict(
         ]),
     test=dict(
         type='samsung',
-        data_root='../../data_preprocessing/data/13class_dataset',
-        img_dir='target_valid_img',
-        ann_dir='target_valid_anno',
+        data_root='data/samsung_data',
+        img_dir='test_img',
+        ann_dir='test_mask',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(
