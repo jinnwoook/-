@@ -31,7 +31,7 @@ def main():
     checkpoint_file = 'work_dirs/vit.pth'
     #-----
     sample_path = "data/samsung_data/test.csv"
-    test_image_path = "data/test_img"
+    test_image_path = "data/samsung_data/test_img"
     submit_path = "data/samsung_data/sample_submission.csv"
     #----------------------------------------------------------------------
     device = "cuda"
