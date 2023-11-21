@@ -287,7 +287,7 @@ runner = dict(type='IterBasedRunner', max_iters=40000)
 checkpoint_config = dict(by_epoch=False, interval=2000, max_keep_ckpts=1)
 evaluation = dict(
     interval=2000, metric='mIoU', pre_eval=True, save_best='mIoU')
-pretrained = 'pretrained/beit_large_patch16_224_pt22k_ft22k.pth'
+pretrained = 'pretrained/cityscape.pth'
 work_dir = './work_dirs/vit_13'
 gpu_ids = range(0, 1)
 auto_resume = False
